@@ -35,7 +35,7 @@ async def ping(Client: fastly, message: Message):
     path = await fastly.download_media(message, file_name="bot_img.jpg")
     print("Now working")
     sleep(1)
-    slicer = pytesseract.image_to_string(Image.open(f"./downloads/bot_img.jpg"))
+    slicer = pytesseract.image_to_string(Image.open("./downloads/bot_img.jpg"))
     word_to_send = slicer.replace("By @FastlyWriteBot", " ")
     await message.reply_text(word_to_send)
     remove(path)
